@@ -9,7 +9,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();//synthetic event
       //fetching data from url 
-      const response = await fetch("/api/loginuser/", {
+      const response = await fetch("/loginuser", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
