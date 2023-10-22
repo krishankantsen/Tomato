@@ -8,7 +8,7 @@ import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 let name=localStorage.getItem("user")
-console.log(name)
+
 export default function Navbar() {
   
   let data=useCart();

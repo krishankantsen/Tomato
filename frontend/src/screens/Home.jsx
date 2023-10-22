@@ -113,42 +113,37 @@ export default function Home() {
         </button>
       </div>
       <div className="container col ">
-        {foodCat.length !== 0
-          ? foodCat.map((data) => {
-              return (
-                <div className="row mb-3">
-                  <div key={data._id} className="fs-3 fs-bold mt-3">
-                    {data.CategoryName}
+      {foodCat.length !== 0
+  ? foodCat.map((data) => {
+      return (
+        <div className="row mb-3" key={data._id}>
+          <div className="fs-3 fs-bold mt-3">{data.CategoryName}</div>
+          <hr />
+          {foodItem && foodItem.length !== 0 ? (
+            foodItem
+              .filter(
+                (item) =>
+                  item.CategoryName === data.CategoryName &&
+                  item.name.toLowerCase().includes(search.toLowerCase())
+              )
+              .map((filterItems) => {
+                return (
+                  <div key={filterItems._id} className="col-12 col-md-6 col-lg-3 ml-3">
+                    <Card
+                      foodItem={filterItems}
+                      options={filterItems.options[0]}
+                    ></Card>
                   </div>
-                  <hr />
-                  {foodItem.length !== 0 ? (
-                    foodItem
-                      .filter(
-                        (item) =>
-                          item.CategoryName === data.CategoryName &&
-                          item.name.toLowerCase().includes(search.toLowerCase())
-                      )
-                      .map((filterItems) => {
-                        return (
-                          <div
-                          
-                            key={filterItems._id}
-                            className="col-12 col-md-6 col-lg-3 ml-3"
-                          >
-                            <Card
-                              foodItem={filterItems}
-                              options={filterItems.options[0]}
-                            ></Card>
-                          </div>
-                        );
-                      })
-                  ) : (
-                    <div>No Such Data Found</div>
-                  )}
-                </div>
-              );
-            })
-          : ""}
+                );
+              })
+          ) : (
+            <div>No Such Data Found</div>
+          )}
+        </div>
+      );
+    })
+  : ""}
+
       </div>
 
       <div>
