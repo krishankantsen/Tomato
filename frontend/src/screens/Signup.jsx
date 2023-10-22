@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 export default function
-    () {
+    Signup() {
     //creating use state htmlFor data of user like name etc
     const [credentials, setcredentials] = useState({ name: "", email: "", password: "", location: "" })
     const handleSubmit = async (e) => {

@@ -49,5 +49,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   }
 }

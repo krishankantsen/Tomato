@@ -2,7 +2,7 @@ import React, { useState,useRef, useEffect } from 'react'
 import { useDispatchCart, useCart } from './ContextReducer';
 
 
-export default function (props) {
+export default function Card(props) {
   let dispatch = useDispatchCart();
   let data =useCart()
   const [qty, setQty] = useState(1)
