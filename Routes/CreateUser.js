@@ -42,7 +42,7 @@ router.post(
         email: req.body.email,
         location: req.body.location,
       });
-      res.json({ success: true });
+      res.json({ success: true , message: 'User created successfully Click to login' });
     } catch (err) {
       console.log("error", err);
       res.json({ success: false });

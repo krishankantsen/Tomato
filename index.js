@@ -6,14 +6,14 @@ const cors = require('cors');
 const path = require('path');
 
 // connecting frontend with backend
-// app.use(cors({ origin: 'http://localhost:3000' }));
+// app.use(cors());
 
 app.use(express.json());
 
 
 app.use("/", require("./Routes/CreateUser")); // make sure these routes are correctly defined
 app.use("/", require("./Routes/DisplayData"));
-app.use("/", require("./Routes/OrderData"));
+app.use("/", require("./Routes/OrderData")); 
 
 
 

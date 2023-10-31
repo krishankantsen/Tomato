@@ -61,19 +61,24 @@ export default function Login() {
   }
   return (
     <div>
-      <div className="container mt-5   h-100 bg-successuu rounded ">
-  
+      <div className="container mt-5   h-100  rounded "  style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh', // Adjust the height as needed
+      }}>
+       
                 <form onSubmit={handleSubmit}>
-                    
+                    <div className='container text-center'><h1>SignIn</h1> <hr /></div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email"  placeholder='Enter email'className="form-control" name='email' value={credentials.email} onChange={onChange} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <input type="email"  placeholder='Enter email'className="form-control w-auto" name='email' value={credentials.email} onChange={onChange} id="exampleInputEmail1" aria-describedby="emailHelp" />
                         <div id="emailHelp"  className="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" placeholder='Enter password' className="form-control" name='password' value={credentials.password} onChange={onChange} />
-                        <div id="emailHelp" className="form-text">Password Must contain Uppercase,Lowercase,Number,Symbol and should 8 character long </div>                   
+                        <input type="password" placeholder='Enter password' className="form-control w-auto" name='password' value={credentials.password} onChange={onChange} />
+                        <div id="emailHelp" className="form-text">Password Must contain Uppercase,Lowercase,<br/> Number,Symbol and should 8 character long </div>                   
                     </div>
                     
 
