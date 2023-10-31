@@ -6,7 +6,7 @@ const cors = require('cors');
 const path = require('path');
 
 // connecting frontend with backend
-// app.use(cors());
+app.use(cors());
 
 app.use(express.json());
 
