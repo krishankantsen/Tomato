@@ -67,6 +67,7 @@ export default function Login() {
         alignItems: 'center',
         height: '100vh', // Adjust the height as needed
       }}>
+                      
        
                 <form onSubmit={handleSubmit}>
                     <div className='container text-center'><h1>SignIn</h1> <hr /></div>
