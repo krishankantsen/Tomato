@@ -10,19 +10,20 @@ export default function Home() {
   const [foodItem, setfoodItem] = useState([]);
 
   const loadData = async () => {
-    // let response = await fetch("http://localhost:5000/api/foodData/", {
+    try {
       let response = await fetch("/foodData", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-    response = await response.json();
-    setfoodItem(response[0]);
-    setfoodCat(response[1]);
-    // console.log(response[0],response[1])
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      response = await response.json();
+      setfoodItem(response[0]);
+      setfoodCat(response[1]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
-
   useEffect(() => {
     loadData();
   }, []);
