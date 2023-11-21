@@ -9,8 +9,8 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();//synthetic event
       //fetching data from url 
-      const response = await fetch("http://localhost:5000/loginuser", {
-      // const response = await fetch("/loginuser", {
+      // const response = await fetch("http://localhost:5000/loginuser", {
+      const response = await fetch("/loginuser", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
