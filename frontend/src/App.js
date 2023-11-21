@@ -6,14 +6,20 @@ import "../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./screens/Signup";
+import  Toaster  from 'react-hot-toast';
 
 import Orders from "./screens/Orders";
 import { CardProvider } from "./components/ContextReducer";
 function App() {
   return (
+    
+            
     <CardProvider>
+    
       <Router>
+      
         <div>
+
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />}></Route>
@@ -21,9 +27,16 @@ function App() {
             <Route exact path="/myOrderData" element={<Orders />}></Route>
             
           </Routes>
+          <Toaster/>
+          
         </div>
+      
       </Router>
+      
+     
     </CardProvider>
+    
+    
   );
 }
 

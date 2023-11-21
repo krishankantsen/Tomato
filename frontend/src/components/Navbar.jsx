@@ -7,10 +7,12 @@ import Modal from "../Modal";
 import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import toast from "react-hot-toast";
+
 let name=localStorage.getItem("user")
 
 export default function Navbar() {
-  
+ 
   let data=useCart();
   const [cartView ,setCartView]=useState(false);
   const navigate=useNavigate();
@@ -19,7 +21,9 @@ export default function Navbar() {
     navigate("/login")
   }
   const handle=()=>{
-
+   
+toast("hii")
+console.log("chutia")
   }
   return (
     <div>
@@ -29,7 +33,7 @@ export default function Navbar() {
       >
         <div className="container-fluid">
          
-          <Link className="navbar-brand  fs-bold fs-1" to="/">
+          <Link className="navbar-brand  fs-bold fs-1" to="/" >
             TOMATO
           </Link>
           <button
@@ -50,10 +54,13 @@ export default function Navbar() {
                   className="nav-link active fs-5"
                   aria-current="page"
                   to="/"
+                  
                 >
                   Home
                 </Link>
+
               </li>
+             
               {(localStorage.getItem("authToken"))
                 ? 
                   

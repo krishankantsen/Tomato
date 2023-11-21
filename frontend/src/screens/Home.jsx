@@ -11,6 +11,7 @@ export default function Home() {
 
   const loadData = async () => {
     try {
+      // let response = await fetch("http://localhost:5000/foodData", {
       let response = await fetch("/foodData", {
         method: "GET",
         headers: {

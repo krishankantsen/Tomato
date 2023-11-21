@@ -1,6 +1,6 @@
 import React, { useState,useRef, useEffect } from 'react'
 import { useDispatchCart, useCart } from './ContextReducer';
-
+// import toast from 'react-hot-toast';
 
 export default function Card(props) {
   let dispatch = useDispatchCart();
@@ -11,6 +11,7 @@ export default function Card(props) {
   let priceOptions = Object.keys(options)
 
   const handleAddToCart = async () => {
+  
     // Ensure that props.foodItem is defined and has the expected structure
     if (props.foodItem && props.foodItem._id) {
      
@@ -26,6 +27,7 @@ export default function Card(props) {
           });
           return;
         } else {
+          
           await dispatch({ 
             type: "ADD",
             id: props.foodItem._id,
