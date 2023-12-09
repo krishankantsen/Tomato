@@ -14,9 +14,9 @@ app.use("/", require("./Routes/CreateUser")); // make sure these routes are corr
 app.use("/", require("./Routes/DisplayData"));
 app.use("/", require("./Routes/OrderData"));
 
-app.use(express.static(path.join(__dirname, "./frontend/build")));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./frontend/build/index.html")),
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html")),
     function (err) {
       res.status(500).send(err);
     };
