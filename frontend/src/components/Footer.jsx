@@ -12,9 +12,7 @@ export default function Footer() {
       <span className="text-muted">@ 2023 Tomato, Inc</span>
     </div>
 
-    <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-      
-    </ul>
+  
   </footer>
   </div>
   )

@@ -7,7 +7,8 @@ import Modal from "../Modal";
 import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 let name=localStorage.getItem("user")
 
@@ -22,8 +23,7 @@ export default function Navbar() {
   }
   const handle=()=>{
    
-toast("hii")
-console.log("chutia")
+
   }
   return (
     <div>
@@ -54,7 +54,7 @@ console.log("chutia")
                   className="nav-link active fs-5"
                   aria-current="page"
                   to="/"
-                  
+                  onClick={toast.success("clicked")}
                 >
                   Home
                 </Link>

@@ -8,15 +8,16 @@ mongoose.connection.on('connected', async () => {
     console.log('Database connected');
     
     try {
-        const fetchedData = await mongoose.connection.db.collection('food_items').find({}).toArray();
-        // console.log('Fetched data:', fetchedData);
-        global.food_items = fetchedData;
-        const fetchedCat = await mongoose.connection.db.collection('foodCategory').find({}).toArray();
-        global.food_Cat = fetchedCat;
-        // console.log(global.food_Cat);
-        const fetchedD = await mongoose.connection.db.collection('users').find({}).toArray();
-        const names = fetchedD.map(item => item.name);
-        global.user_name = names;
+        const fetchAndAssign = async (collectionName, globalVariable) => {
+            const fetchedData = await mongoose.connection.db.collection(collectionName).find({}).toArray();
+            global[globalVariable] = fetchedData;
+        };
+
+        await Promise.all([
+            fetchAndAssign('food_items', 'food_items'),
+            fetchAndAssign('foodCategory', 'food_Cat'),
+            fetchAndAssign('users', 'user_name'),
+        ]);
     } catch (err) {
         console.error('Error fetching data:', err);
     }
