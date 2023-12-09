@@ -12,7 +12,7 @@ export default function Home() {
   const loadData = async () => {
     try {
       // let response = await fetch("http://localhost:5000/foodData", {
-      let response = await fetch("/foodData", {
+      let response = await fetch("https://tomatobackend.vercel.app/foodData", {
         method: "GET",
         headers: {
           "content-type": "application/json",
