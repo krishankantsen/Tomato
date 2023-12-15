@@ -10,7 +10,7 @@ router.get("/foodData",(req,res)=>{
         res.send("server error")
     }
 })
-router.post("/getName",(req,res)=>{
+router.get("/getName",(req,res)=>{
     try{res.send(
      [global.user_name]
     )}catch (error) {
