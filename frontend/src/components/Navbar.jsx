@@ -103,7 +103,7 @@ export default function Navbar() {
                      <LogoutIcon/> Logout
             </div>
             <div className="btn text-white mb-1 fs-7" onClick={handle}  >
-                   <AccountCircleIcon/> {name}
+                   <AccountCircleIcon/> {localStorage.getItem("name")}
             </div>
             </div> 
             }
