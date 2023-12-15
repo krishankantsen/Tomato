@@ -14,14 +14,17 @@ app.use("/", require("./Routes/CreateUser")); // make sure these routes are corr
 app.use("/", require("./Routes/DisplayData"));
 app.use("/", require("./Routes/OrderData"));
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html")),
-    function (err) {
-      res.status(500).send(err);
-    };
-});
-
+app.get("/",(req,res)=>{
+  res.json({message:"Hello I am Backend"})
+})
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../frontend/build/index.html")),
+//     function (err) {
+//       res.status(500).send(err);
+//     };
+// });
+ 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
