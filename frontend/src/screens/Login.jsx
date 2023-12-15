@@ -24,30 +24,11 @@ export default function Login() {
           alert("Enter Valid Email and Password");
       }
       if(json.success){
-     
-  
-        let response = await fetch("/getName", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          
-          if (response.ok) {
-            const data = await response.json();
-            const name = data[0][0]; // Extracting the name from the nested array
-          
-            localStorage.setItem("user", name);
-            
-          } else {
-            console.error("Error while fetching data.");
-          }
-        
-    
 
         localStorage.setItem("userEmail",credentials.email)
         
         localStorage.setItem("authToken",json.authToken)
+        localStorage.setItem("name",json.name)
         
         
         

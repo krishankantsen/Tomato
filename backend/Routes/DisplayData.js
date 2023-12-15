@@ -10,14 +10,6 @@ router.get("/foodData",(req,res)=>{
         res.send("server error")
     }
 })
-router.get("/getName",(req,res)=>{
-    try{res.send(
-     [global.user_name]
-    )}catch (error) {
-        console.log(error);
-        res.send("server error")
-    }
-})
 
 
 module.exports = router;

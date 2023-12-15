@@ -94,7 +94,8 @@ router.post(
         }
       }
       const authToken=jwt.sign(data,JWT_SECRET);
-      return res.json({ success: true ,authToken:authToken});
+      const name=userData.name;
+      return res.json({ success: true ,authToken:authToken,name:name});
     } catch (err) {
       console.log("error", err);
       res.json({ success: false });
