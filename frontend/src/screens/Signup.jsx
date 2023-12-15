@@ -14,7 +14,7 @@ export default function Signup() {
     e.preventDefault(); //synthetic event
     //fetching data from url
     // const response = await fetch("http://localhost:5000/createuser", {
-    const response = await fetch("/createuser", {
+    const response = await fetch("https://tomato-backend-nine.vercel.app/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
