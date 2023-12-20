@@ -36,7 +36,7 @@ router.get('/foodData', async (req, res) => {
         fetchData('foodCategory'),
       ]);
   
-      res.json({ foodItems, foodCats });
+      res.send({ foodItems, foodCats });
     } catch (error) {
       console.error('Error fetching and sending data:', error);
       res.status(500).send('Server error');
