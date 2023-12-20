@@ -14,9 +14,6 @@ export default function Home() {
       try {
         const response = await fetch("https://tomato-backend-nine.vercel.app/foodData", {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
         });
   
         if (!response.ok) {
@@ -24,10 +21,9 @@ export default function Home() {
         }
   
         const data = await response.json();
-        const [foodItemData, foodCatData] = data;
-  
-        setfoodItem(foodItemData);
-        setfoodCat(foodCatData);
+
+        setfoodItem(data.foodItems);
+        setfoodCat(data.foodCats);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }

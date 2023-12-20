@@ -10,8 +10,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { toast } from "react-toastify";
 
 
-let name=localStorage.getItem("name")
-
 export default function Navbar() {
  
   let data=useCart();
