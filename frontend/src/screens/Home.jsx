@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://tomato-backend-nine.vercel.app/foodData", {
+        const response = await fetch("https://tomato-backend-krishankantsen.vercel.app/foodData", {
           method: "GET",
         });
   
