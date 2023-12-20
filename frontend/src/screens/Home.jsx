@@ -10,25 +10,32 @@ export default function Home() {
   const [foodItem, setfoodItem] = useState([]);
 
   useEffect(() => {
-    const loadData = async () => {
+    const fetchData = async () => {
       try {
-        // let response = await fetch("http://localhost:5000/foodData", {
-        let response = await fetch("https://tomato-backend-nine.vercel.app/foodData", {
+        const response = await fetch("https://tomato-backend-nine.vercel.app/foodData", {
           method: "GET",
           headers: {
-            "content-type": "application/json",
+            "Content-Type": "application/json",
           },
         });
-        response = await response.json();
-        setfoodItem(response[0]);
-        setfoodCat(response[1]);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        const [foodItemData, foodCatData] = data;
+  
+        setfoodItem(foodItemData);
+        setfoodCat(foodCatData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:", error.message);
       }
     };
   
-    loadData();
+    fetchData();
   }, []);
+  
 
   return (
     <div>
