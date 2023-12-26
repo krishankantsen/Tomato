@@ -120,7 +120,7 @@ export default function Home() {
       </div>
       <div className="container col ">
       {foodCat.map((data) => {
-      return (
+       (
         <div className="row mb-3" key={data._id}>
           <div className="fs-3 fs-bold mt-3">{data.CategoryName}</div>
           <hr />
@@ -132,7 +132,7 @@ export default function Home() {
                   item.name.toLowerCase().includes(search.toLowerCase())
               )
               .map((filterItems) => {
-                return (
+               (
                   <div key={filterItems._id} className="col-12 col-md-6 col-lg-3 ml-3">
                     <Card
                       foodItem={filterItems}
