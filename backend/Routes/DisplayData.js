@@ -27,7 +27,7 @@ const mongoose=require("mongoose")
 router.get('/foodData', async (req, res) => {
     try {
       const fetchData = async (collectionName) => {
-        const fetchedData = await mongoose.connection.db.collection(collectionName).find({}).toArray();
+        const fetchedData = await mongoose.connection.db.collection().find({}).toArray();
         return fetchedData;
       };
   
