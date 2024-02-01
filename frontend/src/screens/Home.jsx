@@ -119,35 +119,31 @@ export default function Home() {
         </button>
       </div>
       <div className="container col ">
-      {foodCat.map((data) => {
-       (
-        <div className="row mb-3" key={data._id}>
-          <div className="fs-3 fs-bold mt-3">{data.CategoryName}</div>
-          <hr />
-          {foodItem && foodItem.length !== 0 ? (
-            foodItem
-              .filter(
-                (item) =>
-                  item.CategoryName === data.CategoryName &&
-                  item.name.toLowerCase().includes(search.toLowerCase())
-              )
-              .map((filterItems) => {
-               (
-                  <div key={filterItems._id} className="col-12 col-md-6 col-lg-3 ml-3">
-                    <Card
-                      foodItem={filterItems}
-                      options={filterItems.options[0]}
-                    ></Card>
-                  </div>
-                );
-              })
-          ) : (
-            <div>No Such Data Found</div>
-          )}
-        </div>
-      );
-    })
-  : ""}
+     {foodCat.map((data) => (
+  <div className="row mb-3" key={data._id}>
+    <div className="fs-3 fs-bold mt-3">{data.CategoryName}</div>
+    <hr />
+    {foodItem && foodItem.length !== 0 ? (
+      foodItem
+        .filter(
+          (item) =>
+            item.CategoryName === data.CategoryName &&
+            item.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .map((filterItems) => (
+          <div key={filterItems._id} className="col-12 col-md-6 col-lg-3 ml-3">
+            <Card
+              foodItem={filterItems}
+              options={filterItems.options[0]}
+            ></Card>
+          </div>
+        ))
+    ) : (
+      <div key={`no-data-${data._id}`}>No Such Data Found</div>
+    )}
+  </div>
+))}
+
 
 
       </div>
