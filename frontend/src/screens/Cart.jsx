@@ -12,7 +12,7 @@ export default function Cart() {
   const handleCheckOut=async()=>{
     let userEmail=localStorage.getItem("userEmail")
     // let response=await fetch("http://localhost:5000/orderData",{
-    let response=await fetch("https://tomato-backend-nine.vercel.app/orderData",{
+    let response=await fetch("https://tom-back.onrender.com/orderData",{
       method:'POST',
       headers: {
         "content-type": "application/json",
