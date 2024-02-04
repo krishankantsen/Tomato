@@ -1,33 +1,44 @@
 import React from "react";
-import {useCart,useDispatchCart} from '../components/ContextReducer'
-import Delete from '@mui/icons-material/DeleteForever';
+import { useCart, useDispatchCart } from "../components/ContextReducer";
+import Delete from "@mui/icons-material/DeleteForever";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 export default function Cart() {
-  let data=useCart();
-  let dispatch =useDispatchCart();
-  if(data.length===0){
+  const navigate=useNavigate();
+  let data = useCart();
+  let dispatch = useDispatchCart();
+  if (data.length === 0) {
     return (
-      <div className="m-5 w-100 text-center text-white fs-3">The Cart is Empty!</div>
-    )
+      <div className="m-5 w-100 text-center text-white fs-3">
+        The Cart is Empty!
+      </div>
+    );
   }
-  const handleCheckOut=async()=>{
-    let userEmail=localStorage.getItem("userEmail")
-    // let response=await fetch("http://localhost:5000/orderData",{
-    let response=await fetch("https://tom-back.onrender.com/orderData",{
-      method:'POST',
+  
+  const handleCheckOut = async () => {
+    let userEmail = localStorage.getItem("userEmail");
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/orderData`, {
+      method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body:JSON.stringify({
-        order_data:data,
-        email:userEmail,
-        order_date:new Date().toDateString()
+      body: JSON.stringify({
+        order_data: data,
+        email: userEmail,
+        order_date: new Date().toDateString(),
+      }),
+    });
+    if (response.status === 200) {
+      dispatch({ type: "DROP" });
+      toast.success('Ordered Successfully', {
+        action: {
+          label: 'Check My Orders',
+          onClick: () => navigate("/myOrderData")
+        }
       })
-    })
-    if(response.status===200){
-      dispatch({type:"DROP"})
     }
-  }
-  let totalPrice =data.reduce((total,food)=> total+food.price,0)
+  };
+  let totalPrice = data.reduce((total, food) => total + food.price, 0);
   return (
     <div>
       <div className="container m-auto mt-5 bg-transparent table-responsive-sm table-responsive-md">
@@ -43,21 +54,33 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {data.map((food,index)=>(
-              <tr >
-                <th scope='row'>{index+1}</th>
+            {data.map((food, index) => (
+              <tr>
+                <th scope="row">{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td>
+                <td>
+                  <button type="button" className="btn p-0">
+                    <Delete
+                      onClick={() => {
+                        dispatch({ type: "REMOVE", index: index });
+                      }}
+                    />
+                  </button>{" "}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div><h1 className="fs-2 text-white">Total Price :{totalPrice}</h1></div>
         <div>
-          <button className="btn bg-danger mt-5" onClick={handleCheckOut} >Check Out</button>
+          <h1 className="fs-2 text-white">Total Price :{totalPrice}</h1>
+        </div>
+        <div>
+          <button className="btn bg-danger mt-5" onClick={handleCheckOut}>
+            Check Out
+          </button>
         </div>
       </div>
     </div>

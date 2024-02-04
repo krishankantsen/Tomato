@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { toast } from 'sonner';
 export default function Signup() {
   let navigate = useNavigate();
   //creating use state htmlFor data of user like name etc
@@ -13,8 +13,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault(); //synthetic event
     //fetching data from url
-    // const response = await fetch("http://localhost:5000/createuser", {
-    const response = await fetch("https://tom-back.onrender.com/createuser", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,12 +29,15 @@ export default function Signup() {
 
     const json = await response.json();
     if (json.success) {
-      alert(json.message);
+      toast.success(json.message,{
+        duration:1000
+      });
       navigate("/login");
     }
-    // localStorage.setItem("name",credentials.name)
     if (!json.success) {
-      alert("Invalid Credential");
+      toast.error("Invalid Credential",{
+        duration:1000
+      });
     }
   };
   const onChange = (event) => {
@@ -46,7 +48,7 @@ export default function Signup() {
   return (
     <>
       <div
-        className="container mt-auto"
+        className="container    w-75 mt-"
         style={{
           display: "flex",
           justifyContent: "center",

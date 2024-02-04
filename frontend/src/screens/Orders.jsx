@@ -6,9 +6,8 @@ export default function MyOrder() {
   const [orderData, setorderData] = useState({});
 
   const fetchMyOrder = async () => {
-    console.log(localStorage.getItem("userEmail"));
-    // await fetch("http://localhost:5000/myOrderData", {
-    await fetch("https://tom-back.onrender.com/myOrderData", {
+
+    await fetch(`${process.env.REACT_APP_API_URL}/myOrderData`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +57,6 @@ export default function MyOrder() {
                                       maxHeight: "360px",
                                     }}
                                   >
-                                   
                                     <div className="card-body">
                                       <h5 className="card-title">
                                         {arrayData.name}
@@ -75,10 +73,9 @@ export default function MyOrder() {
                                         </span>
                                         <span className="m-1">{data}</span>
                                         <br></br>
-                                      
+
                                         <div className=" d-inline ms-2 h-100 w-20 fs-5">
                                           ₹{arrayData.price}/-
-                                         
                                         </div>
                                       </div>
                                     </div>

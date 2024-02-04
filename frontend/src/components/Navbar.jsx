@@ -7,8 +7,7 @@ import Modal from "../Modal";
 import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { toast } from "react-toastify";
-
+import { toast } from 'sonner';
 
 export default function Navbar() {
  
@@ -17,6 +16,9 @@ export default function Navbar() {
   const navigate=useNavigate();
   const handleLogout =()=>{
     localStorage.removeItem("authToken")
+    toast.warning("Logged Out",{
+      duration:1000
+    })
     navigate("/login")
   }
   const handle=()=>{
@@ -26,8 +28,8 @@ export default function Navbar() {
   return (
     <div>
       <nav
-        className="navbar  navbar-expand-lg navbar-dark bg-danger  "
-        style={{ padding: "0.01rem 0.5rem" }}
+        className="navbar  navbar-expand-lg navbar-dark bg-danger w-100 "
+        style={{ padding: "0.01rem 0.5rem",position:"fixed",zIndex:1000 }}
       >
         <div className="container-fluid">
          
@@ -52,7 +54,6 @@ export default function Navbar() {
                   className="nav-link active fs-5"
                   aria-current="page"
                   to="/"
-                  onClick={toast.success("clicked")}
                 >
                   Home
                 </Link>

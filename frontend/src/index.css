@@ -1,25 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@12..96&family=Lobster&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@12..96&family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Martian+Mono&family=Roboto+Mono&display=swap'); */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-family: "Bricolage Grotesque", sans-serif !important;
   /* font-family: 'Lobster', cursive !important;  */
-  
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-#carousel{
+#carousel {
   max-height: 500px;
 }
